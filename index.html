@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon-192.png">
+  <title>Buldring – mitt program</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Buldring: Grep & styrke</h1>
+    <button id="installBtn" hidden>Installer på hjemskjerm</button>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="program">Program</button>
+    <button data-tab="progresjon">Progresjon</button>
+    <button data-tab="logg">Logg</button>
+    <button data-tab="eksport">Eksport</button>
+  </nav>
+
+  <main>
+    <section id="program" class="tab">
+      <div id="programA" class="card">
+        <h2>Økt A (trekk + kjerne + ben)</h2>
+        <ul id="listeA"></ul>
+      </div>
+      <div id="programB" class="card">
+        <h2>Økt B (press + stabilitet + ben)</h2>
+        <ul id="listeB"></ul>
+      </div>
+    </section>
+
+    <section id="progresjon" class="tab hidden">
+      <div class="card">
+        <h2>4‑ukers plan</h2>
+        <ul id="ukeplan"></ul>
+      </div>
+    </section>
+
+    <section id="logg" class="tab hidden">
+      <div class="card">
+        <h2>Ny registrering</h2>
+        <form id="loggForm">
+          <label>Økt
+            <select id="feltOkt">
+              <option>Økt A</option>
+              <option>Økt B</option>
+            </select>
+          </label>
+          <div class="grid">
+            <label>Vekt (kg)
+              <input type="number" id="feltVekt" step="0.5" inputmode="decimal" placeholder="f.eks. 70">
+            </label>
+            <label>Tid i hang (s)
+              <input type="number" id="feltTid" step="1" inputmode="numeric" placeholder="f.eks. 30">
+            </label>
+            <label>Reps (valgfritt)
+              <input type="number" id="feltReps" step="1" inputmode="numeric">
+            </label>
+            <label>RIR (valgfritt)
+              <input type="number" id="feltRir" step="1" inputmode="numeric">
+            </label>
+          </div>
+          <label>Notater
+            <textarea id="feltNotater" rows="2" placeholder="f.eks. Dead hang 3x30s, god kontroll"></textarea>
+          </label>
+          <button type="submit">Lagre</button>
+          <button type="button" id="slettAltBtn" class="danger">Tøm all logg</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Mine registreringer</h2>
+        <ul id="loggliste" class="logg"></ul>
+      </div>
+    </section>
+
+    <section id="eksport" class="tab hidden">
+      <div class="card">
+        <h2>Eksporter data</h2>
+        <p>Eksporter loggen din til CSV eller JSON for sikkerhetskopi eller deling.</p>
+        <button id="eksportCsv">Last ned CSV</button>
+        <button id="eksportJson">Last ned JSON</button>
+      </div>
+
+      <div class="card">
+        <h2>Installasjonstips (iPhone)</h2>
+        <ol>
+          <li>Åpne denne siden i <b>Safari</b>.</li>
+          <li>Trykk <b>Del</b> → <b>Legg til på Hjem-skjerm</b>.</li>
+          <li>Åpne ikonet fra Hjem-skjermen. Siden virker også <b>offline</b>.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Lagring kun på enheten (localStorage). Ingen nettverk kreves etter installasjon.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
